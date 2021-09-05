@@ -1,0 +1,22 @@
+name: "Setup SBT"
+description: "Set up a specific version of SBT and add the command-line tools to the PATH"
+author: "Roman Nazarenko <me+setup-sbt@jtalk.me>"
+inputs:
+  version:
+    description: The exact SBT version to set up. See https://github.com/sbt/sbt/releases
+    required: true
+  skip-cache:
+    description: Ignore the cached version in the tool cache and force re-install
+    required: false
+    default: "false"
+outputs:
+  version:
+    description: "Actual version of SBT that has been installed"
+  path:
+    description: "Path to where SBT has been installed"
+branding:
+  icon: check
+  color: green
+runs:
+  using: "node12"
+  main: "lib/index.js"
