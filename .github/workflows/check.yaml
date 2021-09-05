@@ -1,0 +1,32 @@
+name: Verify action
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  NODE_VERSION: 12.x
+
+jobs:
+  check:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+    name: Verify action on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check arbitrary version
+        uses: ./
+        with:
+          version: 1.5.5
+      - name: Run SBT command
+        run: |
+          sbt --version
