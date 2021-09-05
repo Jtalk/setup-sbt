@@ -14,9 +14,6 @@ outputs:
     description: "Actual version of SBT that has been installed"
   path:
     description: "Path to where SBT has been installed"
-branding:
-  icon: check
-  color: green
 runs:
   using: "node12"
   main: "lib/index.js"
