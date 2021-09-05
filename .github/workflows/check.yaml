@@ -30,3 +30,26 @@ jobs:
       - name: Run SBT command
         run: |
           sbt --version
+
+  check-cache-control:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+        cache:
+          - true
+          - false
+    name: Verify action on ${{ matrix.os }}, cache=${{ matrix.cache }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check arbitrary version
+        uses: ./
+        with:
+          version: 1.5.5
+          skip-cache: ${{ matrix.cache }}
+      - name: Run SBT command
+        run: |
+          sbt --version
