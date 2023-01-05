@@ -15,5 +15,5 @@ outputs:
   path:
     description: "Path to where SBT has been installed"
 runs:
-  using: "node12"
+  using: "node16"
   main: "lib/index.js"
