@@ -12,7 +12,7 @@ Set up the specific version of SBT
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: Jtalk/setup-sbt@v1
+- uses: Jtalk/setup-sbt@v2
   with:
     version: 1.5.5
 - run: sbt --version
